@@ -134,24 +134,26 @@ export default function Projects() {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-[#020204] w-full min-h-screen px-8 md:px-32 py-24"
+      className="relative bg-[#020204] w-full min-h-screen px-5 sm:px-8 md:px-16 lg:px-32 py-16 md:py-24"
     >
       <div
         className={`max-w-6xl mx-auto w-full transform transition-all duration-1000 ease-out ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
         }`}
       >
-        <h2 className="text-neutral-100 text-4xl font-[Georgia] mb-12">Projects</h2>
+        <h2 className="text-neutral-100 text-3xl sm:text-4xl font-[Georgia] mb-8 md:mb-12">Projects</h2>
 
-        <div className="flex flex-col lg:flex-row gap-16">
+        <div className="flex flex-col lg:flex-row gap-10 md:gap-16">
 
           {/* Tools */}
-          <aside className="lg:w-56 shrink-0 lg:sticky lg:top-24 self-start">
-            <h3 className="text-slate-500 mb-4">Tools I use</h3>
-            <ul className="flex flex-row flex-wrap lg:flex-col gap-x-6 gap-y-3">
+          <aside className="w-full lg:w-56 shrink-0 lg:sticky lg:top-24 self-start pb-6 lg:pb-0 border-b border-white/5 lg:border-b-0">
+            <h3 className="text-slate-500 text-xs sm:text-sm font-medium uppercase tracking-wider mb-3 sm:mb-4">Tools I use</h3>
+            <ul className="flex flex-row flex-wrap lg:flex-col gap-x-4 sm:gap-x-6 gap-y-2.5 sm:gap-y-3">
               {Object.entries(tools).map(([key, tool]) => (
-                <li key={key} className="flex items-center gap-3 text-slate-400">
-                  {tool.icon}
+                <li key={key} className="flex items-center gap-2.5 sm:gap-3 text-slate-400 text-sm sm:text-base">
+                  <span className="shrink-0 [&>svg]:w-5 [&>svg]:h-5 sm:[&>svg]:w-6 sm:[&>svg]:h-6 flex items-center justify-center">
+                    {tool.icon}
+                  </span>
                   <span>{tool.name}</span>
                 </li>
               ))}
@@ -159,26 +161,30 @@ export default function Projects() {
           </aside>
 
           {/* Projects */}
-          <div className="flex-1 flex flex-col">
+          <div className="flex-1 flex flex-col gap-12 sm:gap-16">
             <Project
+              url="https://asapform.app"
               image="https://merricpictures.s3.us-east-005.backblazeb2.com/merricdev/asapform.jpg"
               title="ASAP Form"
               technologies={[tools.react, tools.tailwind, tools.django, tools.postgresql, tools.gemini, tools.redis, tools.chromadb]}
               description="ASAP Form is a web application designed to automatically organize form submissions. Users create forms with a form builder, then easily embed them into their websites. When submissions are received, they are automatically organized with an atomic huey worker. The responses can be retrieved from ChromaDB by Gemini so users can talk to AI about their form submissions. Includes Google OAuth, Stripe integration, and form validation."
             />
             <Project
+              url="https://trajectorytuner.up.railway.app/"
               image="https://merricpictures.s3.us-east-005.backblazeb2.com/merricdev/Screenshot+2026-09-27+212219.png"
               title="Trajectory Tuner"
               technologies={[tools.react, tools.tailwind]}
               description="Trajectory Tuner is a game where a player writes mathematical expressions in order to control their player across a grid. The goal is for the player to touch all the targets on the grid while avoiding obstacles on the grid. Multiple levels increase in difficulty as the player progresses."
             />
             <Project
+              url="https://biblicalcrossreference.up.railway.app/"
               image="https://merricpictures.s3.us-east-005.backblazeb2.com/merricdev/Screenshot+2026-09-27+213517.png"
               title="Biblical Cross Reference Search"
               technologies={[tools.react, tools.tailwind, tools.flask, tools.postgresql]}
               description="Biblical Cross Reference is like the Wiki Game but for biblical cross references. Players are given a starting verse and an ending verse and the player must navigate through a biblical cross reference network to reach the ending verse. A Postgres database was created to store the biblical cross references as a graph with over 300,000 cross references."
             />
             <Project
+              url="https://stellardrive.up.railway.app/"
               image="https://merricpictures.s3.us-east-005.backblazeb2.com/merricdev/Screenshot+2026-09-27+215001.png"
               title="Photon Harbor (WIP)"
               technologies={[tools.react, tools.tailwind, tools.django, tools.backblaze, tools.postgresql]}
